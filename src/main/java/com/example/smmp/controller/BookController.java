@@ -1,7 +1,6 @@
 package com.example.smmp.controller;
 
 import com.example.smmp.controller.utlis.R;
-import com.example.smmp.dao.BookDao;
 import com.example.smmp.domain.Book;
 import com.example.smmp.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +18,21 @@ public class BookController {
 
     @Autowired
     private IBookService iBookService;
-
-    @GetMapping
-    public R getAll(){
-
-        List<Book> list = iBookService.list();
-        return new R(true,list);
-
-    }
+//
+//    @GetMapping
+//    public R getAll(){
+//
+//        List<Book> list = iBookService.list();
+//        return new R(true,list);
+//
+//    }
 
     @GetMapping("page/{page}/{pageSize}")
-    public R getPage(@PathVariable int page,@PathVariable int pageSize){
+    public R getPage(@PathVariable int page, @PathVariable int pageSize) throws Exception {
 
         List<Book> list = iBookService.getPage(page,pageSize);
+        if(true) throw  new Exception("error");
+
         return new R(true,list);
 
     }

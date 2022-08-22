@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SmmpApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SmmpApplication.class, args);
+        SpringApplication.run(SmmpApplication.class, args
+        );
     }
 
 }
