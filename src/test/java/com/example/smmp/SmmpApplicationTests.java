@@ -23,16 +23,15 @@ class SmmpApplicationTests {
     void contextLoads() {
         System.out.println(bookDao.selectById(1).toString());
 
-//        Book book = new Book();
-//        book.setName("张三");
-//        book.setDescription("张三的描述");
-//        book.setType("社会混混");
-//        bookDao.insert(book);
+        Book book = new Book();
+        book.setName("张三");
+        book.setDescription("张三的描述");
+        book.setType("社会混混fafafa");
+        bookDao.insert(book);
 
 
         System.out.printf(bookService.getPage(1,2).toString());
 
-        Book book = new Book();
         book.setType("333");
         book.setName("nameafaf");
         book.setDescription("miaoshuafaf");

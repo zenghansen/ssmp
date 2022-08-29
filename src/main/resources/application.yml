@@ -12,3 +12,15 @@ mybatis-plus:
     db-config:
       table-prefix: tpl_
       id-type: auto
+
+logging:
+  logback:
+    rollingpolicy:
+      max-file-size: 1MB
+      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
+  file:
+    name: server.log
+  level:
+    root: warn
+
+
