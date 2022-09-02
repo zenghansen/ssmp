@@ -6,5 +6,6 @@ import com.example.smmp.domain.Book;
 import java.util.List;
 
 public interface IBookService extends IService<Book> {
-    List<Book> getPage(int current,int size);
+    List<Book> search(int[] ids,int current,int size);
+    List<Book> getByIds(String ids);
 }

@@ -10,6 +10,8 @@ import com.example.smmp.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -20,11 +22,18 @@ public class IBookServiceImpl extends ServiceImpl<BookDao,Book> implements IBook
     BookDao bookDao;
 
     @Override
-    public List<Book> getPage(int current,int size) {
-        IPage iPage = new Page(current,size);
+    public List<Book> search(int[] ids ,int current,int size) {
+        //IPage iPage = new Page(current,size);
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.gt("id",2);
-        bookDao.selectPage(iPage,queryWrapper);
-        return iPage.getRecords();
+        queryWrapper.in("id",  new ArrayList<Integer>(Arrays.asList(1,3)));
+        //this.page(iPage,queryWrapper);
+        return this.list(queryWrapper);
+        //return iPage.getRecords();
+    }
+
+    @Override
+    public List<Book> getByIds(String ids){
+
+      return bookDao.getByIds(ids);
     }
 }

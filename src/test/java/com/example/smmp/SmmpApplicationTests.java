@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class SmmpApplicationTests {
 
@@ -19,25 +21,27 @@ class SmmpApplicationTests {
     private IBookService bookService;
 
 
+    public static String getInCond(String str) {
+        String[] strArr = str.split(",");
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0;i < strArr.length; i++){
+            if(i == strArr.length-1){
+                sb.append("'"+strArr[i]+"'");
+            }else{
+                sb.append("'"+strArr[i]+"'"+",");
+            }
+        }
+        return sb.toString();
+    }
+
     @Test
     void contextLoads() {
-        System.out.println(bookDao.selectById(1).toString());
 
-        Book book = new Book();
-        book.setName("张三");
-        book.setDescription("张三的描述");
-        book.setType("社会混混fafafa");
-        bookDao.insert(book);
+        String str = "1,2,3";
+        System.out.printf(getInCond(str));
+        String newStr = getInCond(str);
 
 
-        System.out.printf(bookService.getPage(1,2).toString());
-
-        book.setType("333");
-        book.setName("nameafaf");
-        book.setDescription("miaoshuafaf");
-        book.setId(3);
-
-        System.out.printf(String.valueOf(bookService.getById(1)));
 
 
     }

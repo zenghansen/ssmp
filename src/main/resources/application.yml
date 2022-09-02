@@ -12,6 +12,8 @@ mybatis-plus:
     db-config:
       table-prefix: tpl_
       id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #sql日志
 
 logging:
   logback:
@@ -21,6 +23,6 @@ logging:
   file:
     name: server.log
   level:
-    root: warn
+    root: info
 
 
