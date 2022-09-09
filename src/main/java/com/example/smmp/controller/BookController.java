@@ -25,13 +25,10 @@ public class BookController {
     @Autowired
     private IBookService iBookService;
 
-    @Autowired
-    private IpCountService ipCountService;
 
     @GetMapping("getByIds")
     public R getByIds() throws Exception {
 
-        ipCountService.count();
 
         if(true) throw new Exception("hahah");
         List<Book> list = iBookService.getByIds("2,3");
