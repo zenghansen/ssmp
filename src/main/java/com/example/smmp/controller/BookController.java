@@ -1,7 +1,6 @@
 package com.example.smmp.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.ip_spring_boot_starter.service.IpCountService;
 import com.example.smmp.controller.utlis.R;
 import com.example.smmp.domain.Book;
 import com.example.smmp.service.IBookService;
@@ -30,7 +29,7 @@ public class BookController {
     public R getByIds() throws Exception {
 
 
-        if(true) throw new Exception("hahah");
+        //if(true) throw new Exception("hahah");
         List<Book> list = iBookService.getByIds("2,3");
         return new R(true,list);
 
